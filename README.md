@@ -9,174 +9,240 @@
   <img src="https://img.shields.io/badge/Machine%20Learning-Linear%20Regression-orange" />
   <img src="https://img.shields.io/badge/Pandas-Data%20Analysis-blue?logo=pandas" />
   <img src="https://img.shields.io/badge/NumPy-Numerical%20Computing-blue?logo=numpy" />
-  <img src="https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn" />
+  <img src="https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange?logo=scikitlearn" />
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter" />
   <img src="https://img.shields.io/badge/Status-Completed-success" />
 </p>
 
 ---
 
-## 📖 Project Overview
+# 📖 Project Overview
 
-This project develops a **Car Price Prediction System** using Machine Learning techniques to predict the selling price of used cars based on various vehicle features.
+This project develops a **Car Price Prediction System using Machine Learning** to estimate the selling price of used cars based on different vehicle specifications.
 
-The model analyzes important factors such as **manufacturing year, present price, kilometers driven, fuel type, seller type, transmission type, and ownership history** to estimate the resale value of a vehicle.
+The model learns patterns from historical car data and predicts the resale value by analyzing important features such as:
 
-A **Linear Regression algorithm** is implemented to build the prediction model and understand the relationship between car specifications and market prices.
+- Manufacturing Year
+- Present Price
+- Kilometers Driven
+- Fuel Type
+- Seller Type
+- Transmission Type
+- Number of Previous Owners
 
-As part of my continuous learning journey in **Artificial Intelligence, Machine Learning, Data Science, and Generative AI**, this project demonstrates a complete machine learning workflow including data preprocessing, feature engineering, model training, evaluation, and prediction.
+A **Linear Regression algorithm** is used to build the prediction model because it is effective for solving regression problems where the output value is continuous.
+
+This project represents my practical learning journey in:
+
+- Artificial Intelligence
+- Machine Learning
+- Data Science
+- Generative AI
+
+The project covers the complete Machine Learning workflow including data collection, data preprocessing, exploratory data analysis, model training, evaluation, and prediction.
 
 ---
 
 # 🎯 Project Objectives
 
+The main objectives of this project are:
+
 * Analyze a real-world automobile dataset.
-* Perform data cleaning and preprocessing.
-* Convert categorical data into numerical format.
-* Build a regression model using Linear Regression.
+* Perform data exploration and preprocessing.
+* Convert categorical features into numerical format.
+* Build a regression-based Machine Learning model.
+* Predict used car selling prices.
 * Evaluate model performance using regression metrics.
-* Develop a system to predict used car prices.
-* Understand practical applications of Machine Learning in the automobile industry.
+* Understand Machine Learning applications in the automobile industry.
 
 ---
 
 # 📂 Dataset Information
 
-**Dataset:** Car Data Dataset
+**Dataset Name:** Car Data Dataset
 
-The dataset contains information about used cars along with their selling prices.
+The dataset contains information about used cars along with their market selling prices.
 
-### Features:
+### Dataset Features
 
 | Feature | Description |
 |---------|-------------|
-| Car_Name | Name of the car |
+| Car_Name | Name of the vehicle |
 | Year | Manufacturing year |
-| Present_Price | Current car price |
-| Kms_Driven | Total kilometers driven |
-| Fuel_Type | Fuel category |
-| Seller_Type | Dealer or Individual |
+| Present_Price | Current showroom price |
+| Kms_Driven | Distance travelled by car |
+| Fuel_Type | Type of fuel used |
+| Seller_Type | Dealer or Individual seller |
 | Transmission | Manual or Automatic |
-| Owner | Previous ownership count |
-| Selling_Price | Target variable |
+| Owner | Number of previous owners |
+| Selling_Price | Car resale price (Target Variable) |
 
 ---
 
 # ⚙️ Technologies Used
 
-* Python
-* NumPy
-* Pandas
-* Scikit-Learn
-* Linear Regression
-* Jupyter Notebook
+<p>
+
+- 🐍 Python
+- 📊 NumPy
+- 🐼 Pandas
+- 🤖 Scikit-Learn
+- 📈 Linear Regression
+- 📒 Jupyter Notebook
+
+</p>
 
 ---
 
-# 🔄 Project Workflow
+# 🔄 Machine Learning Workflow
 
 ## 1. Data Collection
 
-* Loaded the used car dataset.
-* Imported required Python libraries for analysis and modeling.
+The used car dataset was loaded for analysis and model development.
+
+Libraries used:
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+````
 
 ---
 
-## 2. Data Exploration (EDA)
+# 2. Exploratory Data Analysis (EDA)
 
-Performed exploratory data analysis to understand:
+Performed data analysis to understand:
 
-* Dataset structure.
-* Data types.
-* Missing values.
-* Unique categories.
-* Feature relationships.
+* Dataset structure
+* Number of records
+* Data types
+* Missing values
+* Unique categories
+* Feature information
+
+Example:
+
+```python
+df.info()
+
+df.isnull().sum()
+```
 
 ---
 
-## 3. Data Preprocessing
+# 3. Data Preprocessing
 
-Categorical features were converted into numerical values.
+Machine Learning algorithms require numerical input, therefore categorical variables were converted into numerical values.
 
-### Encoding:
+## Encoding Categorical Features
 
-**Seller Type**
+### Seller Type
 
-
+```
 Dealer → 0
 Individual → 1
+```
 
+### Fuel Type
 
-**Fuel Type**
-
-
+```
 Petrol → 0
 Diesel → 1
 CNG → 2
+```
 
+### Transmission
 
-**Transmission**
-
-
+```
 Manual → 0
 Automatic → 1
-
-
----
-
-## 4. Feature Selection
-
-Separated independent features and target variable.
-
-### Input Features:
-
-* Year
-* Present Price
-* Kms Driven
-* Fuel Type
-* Seller Type
-* Transmission
-* Owner
-
-
-### Target Variable:
-
-* Selling Price
+```
 
 ---
 
-## 5. Train-Test Split
+# 4. Feature Selection
 
 The dataset was divided into:
 
-| Dataset | Percentage |
-|---------|------------|
-| Training Data | 80% |
-| Testing Data | 20% |
+## Independent Features (Input)
 
-Training data is used for learning, while testing data evaluates model performance.
+```
+Year
+Present_Price
+Kms_Driven
+Fuel_Type
+Seller_Type
+Transmission
+Owner
+```
+
+## Dependent Feature (Target)
+
+```
+Selling_Price
+```
+
+Code:
+
+```python
+X = df.drop(['Car_Name','Selling_Price'],axis=1)
+
+Y = df['Selling_Price']
+```
 
 ---
 
-## 6. Model Training
+# 5. Train-Test Split
 
-A **Linear Regression Model** was trained using the training dataset.
+The dataset was divided into training and testing data.
 
-Linear Regression is a supervised learning algorithm used for predicting continuous numerical values by finding relationships between input features and output variables.
+| Dataset       | Percentage |
+| ------------- | ---------- |
+| Training Data | 80%        |
+| Testing Data  | 20%        |
+
+Code:
+
+```python
+X_train, X_test, Y_train, Y_test = train_test_split(
+    X,
+    Y,
+    test_size=0.2,
+    random_state=2
+)
+```
 
 ---
 
-## 🤖 Machine Learning Model
+# 🤖 Machine Learning Model
 
 ## Linear Regression
 
-Linear Regression predicts the selling price of a car by learning patterns between vehicle features and historical prices.
+Linear Regression is a supervised machine learning algorithm used to predict continuous numerical values.
+
+In this project, it learns the relationship between car features and selling price to estimate the resale value of vehicles.
 
 ### Advantages:
 
-* Simple and efficient algorithm.
-* Easy interpretation.
-* Works well for regression problems.
-* Provides continuous price predictions.
+✔ Simple and efficient
+✔ Easy to understand
+✔ Works well for regression problems
+✔ Provides continuous predictions
+
+---
+
+# 🚀 Model Training
+
+The Linear Regression model was trained using the training dataset.
+
+```python
+model = LinearRegression()
+
+model.fit(X_train,Y_train)
+```
 
 ---
 
@@ -184,30 +250,65 @@ Linear Regression predicts the selling price of a car by learning patterns betwe
 
 The model performance was evaluated using:
 
-* R² Score
+### R² Score
 
-### Performance:
+R² Score measures how well the model explains the variation in the target variable.
 
-| Metric | Result |
-|--------|--------|
-| Training Accuracy | Calculated using R² Score |
-| Testing Accuracy | Calculated using R² Score |
+Code:
 
-The model demonstrates the ability to predict used car prices based on vehicle specifications.
+```python
+training_prediction = model.predict(X_train)
+
+metrics.r2_score(
+    training_prediction,
+    Y_train
+)
+```
+
+Testing:
+
+```python
+test_prediction = model.predict(X_test)
+
+metrics.r2_score(
+    test_prediction,
+    Y_test
+)
+```
 
 ---
 
-# 🚗 Sample Prediction
+# 🚗 Car Price Prediction
 
-### Input:
+The trained model predicts the selling price of a new vehicle based on user input.
 
-Vehicle details:
+Example:
+
+### Input
 
 ```python
-(2014, 3.35, 27000, 0, 0, 0, 0)
-Output:
+(2014,3.35,27000,0,0,0,0)
+```
+
+### Output
+
+```python
 Predicted Car Price: ₹X Lakhs
-📁 Project Structure
+```
+
+---
+
+# 📈 Results
+
+The model successfully predicts used car prices based on vehicle specifications.
+
+The Linear Regression model demonstrates that Machine Learning can be effectively used for automobile price estimation.
+
+---
+
+# 📁 Project Structure
+
+```
 Car-Price-Prediction/
 │
 ├── Car_Price_Prediction.ipynb
@@ -215,47 +316,77 @@ Car-Price-Prediction/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-🚀 Future Improvements
-Apply Feature Scaling techniques.
-Compare multiple regression algorithms:
-Random Forest Regression
-XGBoost Regression
-Gradient Boosting
-Add data visualization.
-Create an interactive Streamlit web application.
-Deploy the model using cloud platforms.
-📚 Key Learnings
+```
+
+---
+
+# 🚀 Future Improvements
+
+Future enhancements for this project:
+
+* Apply Feature Scaling techniques.
+
+* Perform advanced Exploratory Data Analysis.
+
+* Compare different Machine Learning algorithms:
+
+  * Random Forest Regression
+  * XGBoost Regression
+  * Gradient Boosting Regression
+
+* Create interactive dashboards.
+
+* Develop a Streamlit web application.
+
+* Deploy the Machine Learning model online.
+
+---
+
+# 📚 Key Learnings
 
 Through this project, I gained practical experience in:
 
-Data Cleaning
-Exploratory Data Analysis
-Data Preprocessing
-Feature Engineering
-Regression Algorithms
-Model Evaluation
-Predictive System Development
-🌱 Learning Journey
+* Data Collection
+* Data Cleaning
+* Exploratory Data Analysis
+* Data Preprocessing
+* Feature Engineering
+* Regression Algorithms
+* Model Evaluation
+* Predictive System Development
 
-This project is part of my ongoing journey in:
+---
 
-Artificial Intelligence (AI)
-Machine Learning (ML)
-Data Science
-Generative AI
+# 🌱 Learning Journey
 
-Each project helps me improve my understanding of solving real-world problems using intelligent data-driven solutions.
+This project is part of my continuous learning journey in:
 
-👩‍💻 Author
-Mehar-taj
+✨ Artificial Intelligence (AI)
+✨ Machine Learning (ML)
+✨ Data Science
+✨ Generative AI
 
-Aspiring Data Scientist | Machine Learning Enthusiast | AI & Generative AI Learner
+Each project helps me improve my problem-solving skills and understand how intelligent systems are developed using real-world data.
 
-GitHub: https://github.com/Mehar-taj
+---
 
-LinkedIn: https://www.linkedin.com/in/mehar-taj-a654102b6
+# 👩‍💻 Author
+
+## Mehar-taj
+
+**Aspiring Data Scientist | Machine Learning Enthusiast | AI & Generative AI Learner**
+
+🔗 GitHub:
+[https://github.com/Mehar-taj](https://github.com/Mehar-taj)
+
+🔗 LinkedIn:
+[https://www.linkedin.com/in/mehar-taj-a654102b6](https://www.linkedin.com/in/mehar-taj-a654102b6)
+
+---
 
 ⭐ If you found this project useful, consider giving it a star and exploring my other Machine Learning projects.
 
+```
 
-This will give your GitHub repository the same **professional portfolio style** as your Breast Cancer Pre
+This version matches your **Breast Cancer Prediction README style** and is ready for GitHub portfolio use.
+```
