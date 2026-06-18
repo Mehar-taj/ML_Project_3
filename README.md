@@ -385,8 +385,3 @@ Each project helps me improve my problem-solving skills and understand how intel
 ---
 
 ⭐ If you found this project useful, consider giving it a star and exploring my other Machine Learning projects.
-
-```
-
-This version matches your **Breast Cancer Prediction README style** and is ready for GitHub portfolio use.
-```
