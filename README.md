@@ -1,6 +1,8 @@
 # 🚗 Car Price Prediction Using Machine Learning
 
-![Car Price Prediction Banner](assets/car-price-prediction-banner.png)
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2193B0,100:6DD5ED&height=250&section=header&text=Car%20Price%20Prediction%20using%20Machine%20Learning&fontSize=35&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
+</p>
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge\&logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge\&logo=pandas)
