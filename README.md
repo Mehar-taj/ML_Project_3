@@ -284,15 +284,19 @@ Successfully developed a **Car Price Prediction System** using Machine Learning.
 
 ---
 
-## 👩‍💻 About Me
+## 👩‍💻 Author
 
-I am passionate about **Artificial Intelligence, Machine Learning, Data Science, and Generative AI**. This project is part of my continuous learning journey, where I build real-world projects to strengthen my technical skills and create impactful solutions.
+### Mehar-taj
 
-### Connect With Me
+Aspiring Data Scientist | Machine Learning Enthusiast | AI & Generative AI Learner
 
-* LinkedIn: https://www.linkedin.com/in/mehar-taj-a654102b6
-* GitHub: https://github.com/Mehar-taj
+GitHub: https://github.com/Mehar-taj
+
+LinkedIn: https://www.linkedin.com/in/mehar-taj-a654102b6
 
 ---
+
+⭐ If you found this project useful, consider giving it a star and exploring my other AI and Machine Learning projects.
+
 
 ⭐ If you found this project helpful, consider giving it a Star!
